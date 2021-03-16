@@ -1,0 +1,3 @@
+ALTER TABLE model_year
+ADD CONSTRAINT FOREIGN KEY (model_id) 
+REFERENCES model (id);

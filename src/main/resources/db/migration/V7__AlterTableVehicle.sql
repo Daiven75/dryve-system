@@ -1,0 +1,7 @@
+ALTER TABLE vehicle
+ADD CONSTRAINT FOREIGN KEY (brand_id) 
+REFERENCES brand (id);
+
+ALTER TABLE vehicle
+ADD CONSTRAINT FOREIGN KEY (model_id) 
+REFERENCES model (id);

@@ -1,0 +1,3 @@
+ ALTER TABLE model
+ ADD CONSTRAINT FOREIGN KEY (brand_id) 
+ REFERENCES brand (id);
