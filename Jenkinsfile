@@ -19,8 +19,22 @@ pipeline {
     }
 
     stage('tests') {
-      steps {
-        sh 'mvn clean test'
+      parallel {
+        stage('tests') {
+          steps {
+            sh 'mvn clean test'
+          }
+        }
+
+        stage('Deploy') {
+          steps {
+            warnError(catchInterruptions: true, message: 'Não foi possível realizar a integração') {
+              sh 'mvn clean tests'
+            }
+
+          }
+        }
+
       }
     }
 
