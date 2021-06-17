@@ -22,13 +22,14 @@ pipeline {
       parallel {
         stage('tests') {
           steps {
+            tool 'maven-jenkins'
             sh 'mvn clean test'
           }
         }
 
         stage('Deploy') {
           steps {
-            warnError(catchInterruptions: true, message: 'Não foi possível realizar a integração') {
+            warnError(catchInterruptions: true, message: 'NÃ£o foi possÃ­vel realizar a integraÃ§Ã£o') {
               sh 'mvn clean tests'
             }
 
